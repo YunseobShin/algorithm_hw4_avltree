@@ -277,6 +277,9 @@ extern AVLNODE avlLeftNode(AVLNODE);
 extern AVLNODE avlRightNode(AVLNODE);
 extern int avlNodeHeight(AVLNODE);
 extern int avlCheck(AVLTREE);
+extern void traversal(AVLTREE, int n, char (*A)[3]);
+extern void deleteNode(AVLTREE tree);
+
 extern HASHTABLE htMake(int);
 extern HASHTABLE htMakeHashTable(int,HASHFUNC,HASHCMPFUNC);
 extern void htClose(HASHTABLE);

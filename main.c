@@ -7,8 +7,6 @@
 # endif
 
 void test_tree(int, char **);
-void traversal(AVLTREE, int n, char (*A)[3]);
-void deleteNode(AVLTREE tree);
 
 extern const char *
 okfail(int val)
@@ -47,55 +45,6 @@ static void
 printfunc(void *data)
 {
     printf("user-data: %s\n",(const char*)data);
-}
-
-void traversal(AVLTREE tree, int n, char (*A)[3])
-{
-    for(int i=0; i<13; i++)
-        avlAdd(tree,A[i],(void*)A[i]);
-    
-    printf("\n");
-    
-    printf("+---- avlWalkDescending() ----+\n");
-    avlWalkDescending(tree,printfunc);
-    printf("\n");
-}
-
-void deleteNode(AVLTREE tree)
-{
-    char del[3];
-    
-    while(avlRootNode(tree) != NULL)
-    {
-        printf("Delete data : ");
-        scanf("%s", del);
-        if(strlen(del) < 2) {
-            char t1[3] = {'0'};
-            strncat(t1, del, 1);
-            strcpy(del, t1);
-        }
-        avlNext(tree);
-        while(1)
-        {
-            if (avlCurrent(tree) !=NULL &&  !strcmp(del,avlCurrent(tree)))
-            {
-                avlCut(tree);
-                avlWalkAscending(tree,printfunc);
-                break;
-            }
-            if(avlCurrent(tree) != NULL)
-            {
-                avlNext(tree);
-                continue;
-            }
-            else
-            {
-                printf("the value doesn't exist\n");
-                break;
-            }
-        }
-        printf("\n");
-    }
 }
 
 void test_tree(int n, char **A)
