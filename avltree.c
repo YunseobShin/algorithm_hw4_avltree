@@ -1474,6 +1474,8 @@ avlCheck(AVLTREE tr)
     return avl_check_node(tree->root,0);
 }
 
+/////////////////////////// added ///////////////////////////
+
 void printfunc(void *data)
 {
     printf("user-data: %s\n",(const char*)data);
@@ -1481,7 +1483,7 @@ void printfunc(void *data)
 
 void traversal(AVLTREE tree, int n, char (*A)[3])
 {
-    for(int i=0; i<13; i++)
+    for(int i=0; i < n; i++)
         avlAdd(tree,A[i],(void*)A[i]);
     
     printf("\n");
